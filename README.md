@@ -1,7 +1,7 @@
 # Google Ads Search Term Wastage Scanner
 
 ## Overview
-This tool scans your raw Google Ads Search Terms CSV report, flags queries wasting your ad spend with zero return, and compiles them into a ready-to-use exact match negative keyword file (`[search term]`).
+This tool scans your raw Google Ads Search Terms CSV report, flags queries wasting your ad spend with zero return, and compiles them into a ready to use exact match negative keyword file (`[search term]`).
 
 ---
 
@@ -14,7 +14,7 @@ This tool scans your raw Google Ads Search Terms CSV report, flags queries wasti
 * `MIN_CLICKS_NO_CONV = 12`
   Traffic threshold. Flags queries with high interaction volume (e.g., 12+ clicks) but 0 conversions.
 * `junk_words = [...]`
-  A watchlist of informational or low-intent keywords. Any query containing these words that fails to convert is immediately flagged.
+  A watchlist of informational or low intent keywords. Any query containing these words that fails to convert is immediately flagged.
 
 ---
 
@@ -23,7 +23,7 @@ This tool scans your raw Google Ads Search Terms CSV report, flags queries wasti
 ### Reading & Sanitizing (`csv.DictReader`, `encoding="utf-8-sig"`)
 * `utf-8-sig` strips out invisible Byte Order Marks (BOM) commonly injected by Excel and Google Ads exports.
 * `row.get(...)` grabs target metrics safely, falling back to clean defaults if headers differ slightly.
-* Strips currency symbols (`$`) and thousand-separator commas (`,`) so numbers parse properly into standard Python `float` and `int` types.
+* Strips currency symbols (`$`) and thousand separator commas (`,`) so numbers parse properly into standard Python `float` and `int` types.
 
 ### Filtering Rules
 A term gets flagged if it meets either condition:
